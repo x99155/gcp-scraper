@@ -8,11 +8,10 @@ Ce projet scrappe les articles du site Afrik.com, les stocke dans BigQuery, et a
 - [Architecture](#architecture)
 - [Prérequis](#prérequis)
 - [Installation](#installation)
-- [Utilisation](#utilisation)
-- [Détails des Fichiers](#détails-des-fichiers)
+- [Etape du projet](#étapes-du-projet)
+- [Déploiement sur GCP](#déploiement-sur-gcp)
 - [Dépannage](#dépannage)
-- [Contribuer](#contribuer)
-- [Licence](#licence)
+- [Captures](#captures)
 
 ## Introduction
 
@@ -39,17 +38,6 @@ L'objectif de ce projet est de scraper les articles du site Afrik.com, de les st
 ```bash
 git clone https://github.com/votre-repo/scraping-afrik-bigquery.git
 cd scraping-afrik-bigquery
-```
-
-## Structure du projet:
-
-```perl
-gcp-afrikcom/
-├── scraper/
-│   ├── scrape.py
-│   ├── requirements.txt
-│   └── Dockerfile
-└── docker-compose.yml
 ```
 
 ## Etapes du projet
