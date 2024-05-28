@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  scraper:
+    image: us-central1-docker.pkg.dev/pro-habitat-424316-b7/afrikcom-repo/scraper:latest
+    command: ["python", "scrape.py"]
+
+  airflow:
+    build:
+      context: ./airflow
+    ports:
+      - "8080:8080"
+    environment:
+      - AIRFLOW__CORE__EXECUTOR=LocalExecutor
+      - AIRFLOW__CORE__SQL_ALCHEMY_CONN=sqlite:////root/airflow/airflow.db
+      - AIRFLOW__CORE__LOAD_EXAMPLES=False
+    volumes:
+      - ./airflow/dags:/opt/airflow/dags
+      - ./airflow/logs:/opt/airflow/logs
+      - ./airflow/plugins:/opt/airflow/plugins
+    command: >
+      bash -c "airflow db upgrade &&
+               airflow users create --username admin --password admin --firstname admin --lastname admin --role Admin --email admin@example.com &&
+               airflow webserver --port 8080 & 
+               airflow scheduler"
