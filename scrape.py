@@ -36,7 +36,7 @@ def scrape_afrik():
             'image_url': image_url,
             'title': title,
             'description': description,
-            'date': datetime.datetime.utcnow().isoformat()
+            'date': datetime.datetime.now().isoformat()
         }
 
         # Ajouter l'article à la liste
