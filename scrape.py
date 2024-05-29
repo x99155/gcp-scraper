@@ -2,9 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 from google.cloud import bigquery
 import datetime
-
-# Initialiser un compteur d'identifiants
-id_counter = 1
+import time
 
 def scrape_afrik():
     global id_counter
@@ -27,9 +25,9 @@ def scrape_afrik():
         title = latest_article.find('h1', class_='entry-title td-module-title').get_text(strip=True)
         description = latest_article.find('div', class_='td-excerpt').get_text(strip=True)
         
-        # Utiliser le compteur d'identifiants pour générer un identifiant unique
-        article_id = id_counter
-        id_counter += 1
+        # Utiliser l'horodatage actuel en millisecondes pour générer un identifiant unique
+        unique_id = int(time.time() * 1000)
+        article_id = unique_id
 
         # Stocker ces informations dans le dictionnaire
         article_info = {
