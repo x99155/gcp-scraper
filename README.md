@@ -52,7 +52,7 @@ cd scraping-afrik-bigquery
 
 1. Construire l'image Docker localement
 ```bash
-docker build -t scraper:latest
+docker build -t scraper:latest .
 
 ```
 
